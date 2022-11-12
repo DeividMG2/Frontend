@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoLocalizacion</title>
+</head>
+<style>
+    #mapa{
+        height: 100%;
+    }
+    html, body{
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<body>
+
+    <!-- ************** OBTENER UBICACION: OBTENER FACIL LAS CORDENADAS DE LATITUD Y LONGITUD CON JS ************** -->
+    
+    <!-- ************** METODO 1 ************** -->
+    <!-- <h1>Geolocalizacion</h1>
+    <button onclick="getLocation()">Show My Localization</button>
+    <p  id = "localization"></p>
+    <script>
+        let l = document.getElementById("localization");
+        function getLocation(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showPosition)
+            }else{
+                l.innerHTML = "No es compatible con tu navegador"
+            }
+        }
+
+        function showPosition(position){
+            l.innerHTML = "Latitud: " + position.coords.latitude + "<br>Longitud: " + position.coords.longitude;
+        }
+        
+    </script> -->
+
+
+    <!-- ************** METODO 2 ************** -->
+    <div id="mapa"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgZZK8umUqJn8d5CoIZqWPJ_qtMfqD9q0&callback=initMap" async defer></script> <!--Ese asyinc defer protege la conexion y evaluar el contenido del link. Y el resto es una api de Google Maps -->
+
+    <script>
+        var mapa;
+        function initMap(){
+            mapa = new google.maps.Map(document.getElementById('mapa'),{center: {lat: 53.430938, lng: -2.960841}, zoom: 18}); //Crea una instancia que que escribe en el div #mapa 
+        }
+    </script>
+</body>
+</html>
